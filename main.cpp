@@ -1,9 +1,8 @@
 #include <iostream>
 #include <stdio.h>
-#include "squaresolution.h"
-#include "sq.solution.test.h"
+#include "cubic.solution.h"
+#include "cub.solution.test.h"
 #include "math.h"
-//#include "sq.solution.test.h"
 
 sq_solution_error solving_equations (int *n, double *x1, double *x2, double *x3);
 sq_solution_error print_result_eq (int n, double x1, double x2, double x3);
@@ -42,6 +41,7 @@ sq_solution_error solving_equations (int *n, double *x1, double *x2, double *x3)
                 print_result_eq (*n, *x1, *x2, *x3);
             }
             else{
+                printf("Program end\n");
                 return SQ_SOLUTION_OK;
             }
             break;
@@ -53,6 +53,7 @@ sq_solution_error solving_equations (int *n, double *x1, double *x2, double *x3)
                 print_result_eq (*n, *x1, *x2, *x3);
             }
             else{
+                printf("Program end\n");
                 return SQ_SOLUTION_OK;
             }
             break;
@@ -64,6 +65,7 @@ sq_solution_error solving_equations (int *n, double *x1, double *x2, double *x3)
                 print_result_eq (*n, *x1, *x2, *x3);
             }
             else{
+                printf("Program end\n");
                 return SQ_SOLUTION_OK;
             }
             break;
@@ -73,6 +75,7 @@ sq_solution_error solving_equations (int *n, double *x1, double *x2, double *x3)
                    "Please, try again, mode can be in range from 1 to 3\n\n");
         }
     }
+    printf("Program end\n");
     return SQ_SOLUTION_OK;
 }
 
