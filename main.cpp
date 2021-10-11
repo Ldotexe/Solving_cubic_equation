@@ -10,7 +10,7 @@ sq_solution_error print_result_eq (int n, double x1, double x2, double x3);
 int main()
 {
     double x1 = NAN, x2 = NAN, x3 = NAN;
-    int n = NAN;
+    int n = 0;
     solving_equations(&n, &x1, &x2, &x3);
     return 0;
 }
@@ -19,7 +19,7 @@ sq_solution_error solving_equations (int *n, double *x1, double *x2, double *x3)
     if (n == nullptr || x1 == nullptr || x2 == nullptr || x3 == nullptr){
         return SQ_SOLUTION_NO_POINTER;
     }
-    int mode = NULL;
+    int mode = 0;
     while(mode + 1){
         printf("Please, enter mode of working in range from 1 to 3 or end program with -1\n"
                "Or you can test square solution program with 0 mode\n\n");
@@ -36,7 +36,7 @@ sq_solution_error solving_equations (int *n, double *x1, double *x2, double *x3)
             break;
         case 1:{
             double a = NAN, b = NAN;
-            if (scanf("%lg %lg", &a, &b) && !isnan(a) && !isnan(b)){
+            if (scanf("%lg %lg", &a, &b) == 2 && !isnan(a) && !isnan(b)){
                 linear_solution(a, b, x1, n);
                 print_result_eq (*n, *x1, *x2, *x3);
             }

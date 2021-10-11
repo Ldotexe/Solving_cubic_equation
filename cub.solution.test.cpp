@@ -3,7 +3,7 @@
 #include "cubic.solution.h"
 #include "cub.solution.test.h"
 
-const double rude_consr = 0.02;
+const double rude_consr = 0.01;
 
 char test_cube_solution(){
     cubic_test test[] = {
@@ -20,8 +20,8 @@ char test_cube_solution(){
         {7.82,       1.89,    3.456891,         369,   ONE, -3.654289178,               0,               0},
         {6.66,   -41.5584, -526.776696, 3480.380136,   TWO,           -9,            7.62,               0}
     };
-    double x1 = NAN, x2 = NULL, x3 = NULL;
-    int n = NAN;
+    double x1 = 0, x2 = 0, x3 = 0;
+    int n = 0;
     for (int i = 0; i < sizeof(test)/sizeof(cubic_test); i++){
         x1 = NULL; x2 = NULL; x3 = NULL;
         cubic_solution(test[i].a, test[i].b, test[i].c, test[i].d, &x1, &x2, &x3, &n);

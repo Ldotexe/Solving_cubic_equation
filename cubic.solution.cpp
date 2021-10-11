@@ -114,29 +114,17 @@ sq_solution_error cubic_solution (double a, double b, double c, double d, double
         }
         if (equality(s, 0)){
             *n = 2;
-            if (- q / 2 < 0){
-                *x1 = - 2 * pow(q / 2, 0.333) - b / (3 * a);
-                *x2 = pow(q / 2, 0.333) - b / (3 * a);
-            }
-            else{
-                *x1 = 2 * pow(-q / 2, 0.333) - b / (3 * a);
-                *x2 = - pow(-q / 2, 0.333) - b / (3 * a);
+            *x1 = 2 * cbrt(-q / 2) - b / (3 * a);
+            *x2 = - cbrt(-q / 2) - b / (3 * a);
+            if (equality(*x1, *x2)){
+                *n = 1;
+                *x2 = 0;
             }
             return SQ_SOLUTION_OK;
         }
         if (s > 0){
             *n = 1;
-            if (-q / 2 - sqrt(s) > 0){
-                *x1 = pow((-q / 2) + sqrt(s), 0.333) + pow((-q / 2) - sqrt(s), 0.333) - b / (3 * a);
-            }
-            else{
-                if ((-q / 2) + sqrt(s) < 0){
-                    *x1 = - pow((q / 2) - sqrt(s), 0.333) - pow((q / 2) + sqrt(s), 0.333) - b / (3 * a);
-                }
-                else{
-                    *x1 = pow((-q / 2) + sqrt(s), 0.333) - pow((q / 2) + sqrt(s), 0.333) - b / (3 * a);
-                }
-            }
+            *x1 = cbrt((-q / 2) + sqrt(s)) + cbrt((-q / 2) - sqrt(s)) - b / (3 * a);
             return SQ_SOLUTION_OK;
         }
     }
